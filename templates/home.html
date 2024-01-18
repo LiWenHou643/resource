@@ -1,0 +1,223 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academy</title>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+</head>
+
+<body>
+<!-- header -->
+<header id="site-header" class="fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a th:href="@{/home}" class="navbar-brand"><i class="fas fa-graduation-cap"></i>Academy
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a th:href="@{/home}" class="nav-link" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/courses}" class="nav-link">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/contact}" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a th:href="@{/dashboard}" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAnonymous()">
+                        <a th:href="@{/login}" class="nav-link">LogIn</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <a th:href="@{/logout}" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- toggle switch for light and dark theme -->
+            <div class="cont-ser-position">
+                <nav class="navigation">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <!-- //toggle switch for light and dark theme -->
+        </nav>
+    </div>
+</header>
+<!-- //header -->
+
+<!-- banner section -->
+<section id="home" class="w3l-banner py-5">
+    <div class="banner-content">
+        <div class="container">
+            <div class="row align-items-center pt-sm-5 pt-4">
+                <div class="col-md-6">
+                    <h3 class="mb-lg-4 mb-3">Academy</h3>
+                    <h3 class="d-block">Best Education</h3>
+                    <p class="banner-sub">Academy is a place where you can find variety of courses with expert teacher
+                        from over the world</p>
+                    <div class="d-flex align-items-center buttons-banner">
+                        <a th:href="@{/contact}" class="btn btn-style mt-lg-5 mt-4 admission-btn">Admission Now</a>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //banner section -->
+
+<!-- home 4grids block -->
+<section class="services-w3l-block py-5" id="features">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Best Features</p>
+            <h3 class="title-style">Achieve Your Goals With Academy Team</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                <div class="icon-box icon-box-clr-1">
+                    <div class="icon"><i class="fas fa-user-friends"></i></div>
+                    <h4 class="title"><a>Expert Teachers</a></h4>
+                    <p>Well experienced teachers for each subject. No common teacher for all subjects.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-md-0 mt-4">
+                <div class="icon-box icon-box-clr-2">
+                    <div class="icon"><i class="fas fa-book-reader"></i></div>
+                    <h4 class="title"><a>Quality Education</a></h4>
+                    <p>Best curriculum based on the Cambridge international framework.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
+                <div class="icon-box icon-box-clr-3">
+                    <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                    <h4 class="title"><a>Alumni Support</a></h4>
+                    <p>Life time Alumni support through various channels available .</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
+                <div class="icon-box icon-box-clr-4">
+                    <div class="icon"><i class="fas fa-university"></i></div>
+                    <h4 class="title"><a>Best Scholarships</a></h4>
+                    <p>Best Scholarships available for the low income family students.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- home 4grids block -->
+
+<!-- footer block -->
+<div th:replace="~{footer :: footer}"></div>
+<!-- //footer block -->
+
+<!-- Js scripts -->
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
+    <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+</button>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!-- //move top -->
+
+<!-- common jquery plugin -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //common jquery plugin -->
+
+<!-- /counter-->
+<script src="assets/js/counter.js"></script>
+<!-- //counter-->
+
+<!-- theme switch js (light and dark)-->
+<script src="assets/js/theme-change.js"></script>
+<!-- //theme switch js (light and dark)-->
+
+<!-- MENU-JS -->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+<!-- //MENU-JS -->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- //disable body scroll which navbar is in active -->
+
+<!-- bootstrap -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- //bootstrap -->
+<!-- //Js scripts -->
+</body>
+
+</html>
