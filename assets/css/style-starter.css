@@ -11783,7 +11783,7 @@ fieldset:disabled .btn {
   --bg-grey: #f4f4f4;
   --bg-light: #fbfbfb;
   --box-shadow: 0 0.5rem 1rem rgb(12 12 12 / 5%);
-  --banner-layer: rgb(255 255 255 / 10%);
+  --banner-layer: rgb(255 255 255 / 70%);
   --gradient-color: linear-gradient(to left, #11d5ff 0%, #0089cd 100%);
   --gradient-color-banner: linear-gradient(to left, #00c9f5 0%, #00a4f5 100%);
   --layer: rgb(1 121 179 / 75%);
@@ -19335,7 +19335,7 @@ h3.title-style {
 
 /* banner section */
 .w3l-banner {
-  background-image: url(https://cdn-employer-wp.arc.dev/wp-content/uploads/2022/04/software-development-costs-1128x635.jpg);
+  background-image: url(/assets/images/banner.jpg);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -19451,9 +19451,6 @@ p.banner-sub {
 }
 
 @media (max-width:991px) {
-  .banner-content {
-    height: 100%;
-  }
 
   .w3l-banner {
     animation: gradient 30s ease infinite;
@@ -19477,10 +19474,6 @@ p.banner-sub {
 @media (max-width: 768px) {
   .banner-style-1 {
     left: 0px;
-  }
-  .banner-content {
-    text-align: center;
-    height: 80%;
   }
   .admission-btn {
     margin: auto;
