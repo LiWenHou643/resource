@@ -1,148 +1,320 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-
-<head>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Eazy School - Best Educational Institute for your Child</title>
     <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="/assets/css/style-starter.css">
-</head>
+    <link rel="stylesheet" href="/assets/css/style-starter.css" />
+  </head>
 
-<body>
-
-<!-- header -->
-<div th:replace="~{header :: header}">...</div>
-<!-- //header -->
-
-<!-- inner banner -->
-<section class="inner-banner py-5">
-    <div class="w3l-breadcrumb py-lg-5">
-        <div class="container pt-4 pb-sm-4">
-            <h4 class="inner-text-title pt-5">Course Details</h4>
-            <ul class="breadcrumbs-custom-path">
-                <li><a th:href="@{/courses}">Courses</a></li>
-                <li class="active"><i class="fas fa-angle-right"></i>Cart</li>
+  <body>
+    <!-- header -->
+    <header id="site-header" class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a th:href="@{/home}" class="navbar-brand"
+            ><i class="fas fa-graduation-cap"></i>Academy
+          </a>
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+            <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+              <li class="nav-item">
+                <a th:href="@{/home}" class="nav-link" aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/courses}" class="nav-link">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/contact}" class="nav-link">Contact</a>
+              </li>
+              <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a th:href="@{/dashboard}" class="nav-link">Dashboard</a>
+              </li>
+              <li class="nav-item" sec:authorize="isAnonymous()">
+                <a th:href="@{/login}" class="nav-link">LogIn</a>
+              </li>
+              <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" class="nav-link">Logout</a>
+              </li>
             </ul>
+          </div>
+          <!-- toggle switch for light and dark theme -->
+          <div class="cont-ser-position">
+            <nav class="navigation">
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="mode-container">
+                    <i class="gg-sun"></i>
+                    <i class="gg-moon"></i>
+                  </div>
+                </label>
+              </div>
+            </nav>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
+        </nav>
+      </div>
+    </header>
+    <!-- //header -->
+
+    <!-- inner banner -->
+    <section class="inner-banner pt-5">
+      <div class="w3l-breadcrumb pt-lg-5">
+        <div class="container pt-4 pb-sm-4">
+          <ul class="breadcrumbs-custom-path">
+            <li><a th:href="@{/courses}">Courses</a></li>
+            <li class="active"><i class="fas fa-angle-right"></i>Cart</li>
+          </ul>
         </div>
-    </div>
-</section>
-<!-- //inner banner -->
+      </div>
+    </section>
+    <!-- //inner banner -->
+        <div class="container mb-4">
+          <div
+            class="row d-flex justify-content-center"
+          >
+            <div class="col-lg-7">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <div>
+                  <p class="mb-0">You have 4 items in your cart</p>
+                </div>
+                <div>
+                  <p class="mb-0">
+                    <span class="text-muted">Sort by:</span>
+                    <a href="#!" class="text-body"
+                      >price <i class="fas fa-angle-down mt-1"></i
+                    ></a>
+                  </p>
+                </div>
+              </div>
 
-<div class="site-section">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                      <div>
+                        <img
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                          class="img-fluid rounded-3"
+                          alt="Shopping item"
+                          style="width: 65px"
+                        />
+                      </div>
+                      <div class="ms-3">
+                        <h5>Iphone 11 pro</h5>
+                        <p class="small mb-0">256GB, Navy Blue</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                      <div style="width: 80px">
+                        <h5 class="mb-0">$900</h5>
+                      </div>
+                      <a href="#!" style="color: #cecece"
+                        ><i class="fas fa-trash-alt"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <div class="table-responsive-class">
 
-        <div class="row mb-4">
-            <div class="col-lg">
-
+              <div class="card mb-3 mb-lg-0">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                      <div>
+                        <img
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
+                          class="img-fluid rounded-3"
+                          alt="Shopping item"
+                          style="width: 65px"
+                        />
+                      </div>
+                      <div class="ms-3">
+                        <h5>MacBook Pro</h5>
+                        <p class="small mb-0">1TB, Graphite</p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                      <div style="width: 80px">
+                        <h5 class="mb-0">$1799</h5>
+                      </div>
+                      <a href="#!" style="color: #cecece"
+                        ><i class="fas fa-trash-alt"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-lg">
+            <div class="col-lg-5">
+              <div class="card bg-light text-white rounded-3">
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-center align-items-center mb-4"
+                  >
+                    <h5 class="mb-0">Payment</h5>
+                  </div>
 
+
+                  <hr class="my-4" />
+
+                  <div class="d-flex justify-content-between">
+                    <p class="mb-2">Subtotal</p>
+                    <p class="mb-2">$4798.00</p>
+                  </div>
+
+                  <div class="d-flex justify-content-between">
+                    <p class="mb-2">Shipping</p>
+                    <p class="mb-2">$20.00</p>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-4">
+                    <p class="mb-2">Total(Incl. taxes)</p>
+                    <p class="mb-2">$4818.00</p>
+                  </div>
+
+                  <div class="w-100 d-flex">
+                      <button type="button" class="btn btn-info btn-block btn-lg mx-auto">
+                        <div class="d-flex justify-content-center">
+                          <span class="me-2">$4818.00</span>
+                          <span
+                            >Checkout
+                            <i class="fas fa-long-arrow-alt-right ms-2"></i
+                          ></span>
+                        </div>
+                      </button>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="col-md-2 login-center text-start">
+      <div class="col-md-2 login-center text-start">
         <a th:href="@{/admin/displayCourses}">
-            <button class="btn btn-style btn-style-3 text-left">BACK</button>
+          <button class="btn btn-style btn-style-3 text-left">BACK</button>
         </a>
-    </div>
-</div>
+      </div>
 
-<!-- footer block -->
-<div th:replace="~{footer :: footer}">...</div>
-<!-- //footer block -->
+    <!-- footer block -->
+    <div th:replace="~{footer :: footer}">...</div>
+    <!-- //footer block -->
 
-<!-- Js scripts -->
-<!-- move top -->
-<button onclick="topFunction()" id="movetop" title="Go to top">
-    <span class="fas fa-level-up-alt" aria-hidden="true"></span>
-</button>
+    <!-- Js scripts -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+      <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+    </button>
 
-<script>
-    let lessonId = document.getElementById('lessonId')
-    if (lessonId.value == "0") {
-        lessonId.value = ""
-    }
-</script>
+    <script>
+      let lessonId = document.getElementById("lessonId");
+      if (lessonId.value == "0") {
+        lessonId.value = "";
+      }
+    </script>
 
-<script>
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        scrollFunction()
-    };
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("movetop").style.display = "block";
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("movetop").style.display = "block";
         } else {
-            document.getElementById("movetop").style.display = "none";
+          document.getElementById("movetop").style.display = "none";
         }
-    }
+      }
 
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
-</script>
-<!-- //move top -->
+      }
+    </script>
+    <!-- //move top -->
 
-<!-- common jquery plugin -->
-<script src="/assets/js/jquery-3.3.1.min.js"></script>
-<!-- //common jquery plugin -->
+    <!-- common jquery plugin -->
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
 
-<!-- theme switch js (light and dark)-->
-<script src="/assets/js/theme-change.js"></script>
-<!-- //theme switch js (light and dark)-->
+    <!-- theme switch js (light and dark)-->
+    <script src="/assets/js/theme-change.js"></script>
+    <!-- //theme switch js (light and dark)-->
 
-<!-- MENU-JS -->
-<script>
-    $(window).on("scroll", function () {
+    <!-- MENU-JS -->
+    <script>
+      $(window).on("scroll", function () {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 80) {
-            $("#site-header").addClass("nav-fixed");
+          $("#site-header").addClass("nav-fixed");
         } else {
-            $("#site-header").removeClass("nav-fixed");
+          $("#site-header").removeClass("nav-fixed");
         }
-    });
+      });
 
-    //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
+      //Main navigation Active Class Add Remove
+      $(".navbar-toggler").on("click", function () {
         $("header").toggleClass("active");
-    });
-    $(document).on("ready", function () {
+      });
+      $(document).on("ready", function () {
         if ($(window).width() > 991) {
-            $("header").removeClass("active");
+          $("header").removeClass("active");
         }
         $(window).on("resize", function () {
-            if ($(window).width() > 991) {
-                $("header").removeClass("active");
-            }
+          if ($(window).width() > 991) {
+            $("header").removeClass("active");
+          }
         });
-    });
-</script>
-<!-- //MENU-JS -->
+      });
+    </script>
+    <!-- //MENU-JS -->
 
-<!-- disable body scroll which navbar is in active -->
-<script>
-    $(function () {
-        $('.navbar-toggler').click(function () {
-            $('body').toggleClass('noscroll');
-        })
-    });
-</script>
-<!-- //disable body scroll which navbar is in active -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+      $(function () {
+        $(".navbar-toggler").click(function () {
+          $("body").toggleClass("noscroll");
+        });
+      });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
 
-<!-- bootstrap -->
-<script src="/assets/js/bootstrap.min.js"></script>
-<!-- //bootstrap -->
-<!-- //Js scripts -->
-</body>
-
+    <!-- bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- //bootstrap -->
+    <!-- //Js scripts -->
+  </body>
 </html>
