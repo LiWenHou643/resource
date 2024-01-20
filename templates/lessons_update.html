@@ -38,7 +38,8 @@
               <i class="fas fa-angle-right"></i
               ><a th:href="@{/admin/displayCourses}">Courses</a>
             </li>
-            <li class="active"><i class="fas fa-angle-right"></i>Updating</li>
+            <li><i class="fas fa-angle-right"></i>Detail</li>
+            <li class="active"><i class="fas fa-angle-right"></i>Lessons</li>
           </ul>
         </div>
       </div>
@@ -50,80 +51,7 @@
         <div class="row mb-4">
           <div class="col-lg">
             <div class="overview-wrap">
-              <h3 class="heading-21921 mx-auto my-3">Course Details</h3>
-            </div>
-            <form
-              th:action="@{/admin/updateCourse(courseId=${courses.courseId},save=true)}"
-              method="post"
-              class="signin-form mb-4"
-              th:object="${course}"
-            >
-              <div class="input-grids">
-                <label class="control-label" for="courseName"
-                  >Course Name</label
-                >
-                <input
-                  type="text"
-                  class="form-control my-2"
-                  name="courseName"
-                  id="courseName"
-                  th:field="*{name}"
-                  required
-                  placeholder="Enter Course Name"
-                />
-                <label class="control-label" for="fees">Fees</label>
-                <input
-                  type="text"
-                  class="form-control my-2"
-                  name="fees"
-                  id="fees"
-                  th:field="*{fees}"
-                  required
-                  placeholder="Enter Fees"
-                />
-                <label class="control-label" for="instructor">Instructor</label>
-                <input
-                  type="text"
-                  class="form-control my-2"
-                  name="instructor"
-                  id="instructor"
-                  th:field="*{instructor}"
-                  required
-                  placeholder="Enter Instructor"
-                />
-                <label class="control-label" for="description"
-                  >Description</label
-                >
-                <input
-                  type="text"
-                  class="form-control my-2"
-                  name="description"
-                  id="description"
-                  th:field="*{description}"
-                  required
-                  placeholder="Enter Description"
-                />
-                <label class="control-label" for="image">Image url</label>
-                <input
-                  type="text"
-                  class="form-control my-2"
-                  name="image"
-                  id="image"
-                  th:field="*{image}"
-                  required
-                  placeholder="Enter Image Url"
-                />
-              </div>
-              <div class="border-top-0 d-flex justify-content-center">
-                <button type="submit" class="btn btn-style btn-style-3">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="col-lg">
-            <div class="overview-wrap">
-              <h3 class="heading-21921 mx-auto my-3">Add Chapter</h3>
+              <h3 class="heading-21921 mx-auto my-3">Chapter 1</h3>
             </div>
             <form
               th:action="@{/admin/updateCourse(courseId=${courses.courseId},addChapter)}"
@@ -132,15 +60,15 @@
               th:object="${chapter}"
             >
               <div class="input-grids">
-                <label class="control-label" for="chapterId">Chapter Id</label>
+                <label class="control-label" for="chapterId">Chapter No</label>
                 <input
                   type="text"
                   class="form-control my-2"
-                  name="chapterId"
-                  id="chapterId"
-                  th:field="*{chapterId}"
+                  name="chapterNo"
+                  id="chapterNo"
+                  th:field="*{chapterNo}"
                   required
-                  placeholder="Enter Chapter Id"
+                  placeholder="Enter Chapter No"
                 />
                 <label class="control-label" for="chapterName"
                   >Chapter Name</label
@@ -157,7 +85,7 @@
               </div>
               <div class="border-top-0 d-flex justify-content-center">
                 <button type="submit" class="btn btn-style btn-style-3">
-                  Submit
+                  Update
                 </button>
               </div>
             </form>
@@ -167,9 +95,9 @@
         <table class="table table-striped table-hover">
           <thead class="table-dark">
             <tr>
-              <th scope="col">Id</th>
+              <th scope="col">No</th>
               <th scope="col">Name</th>
-              <th scope="col">Number Lessons</th>
+              <th scope="col">Source</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -178,9 +106,8 @@
             <tr>
               <td>1</td>
               <td>Introduce to course</td>
-              <td>7</td>
+              <td>http://youtube</td>
               <td>
-                <a class="btn btn-primary">VIEW</a>
               </td>
               <td>
                 <a class="btn btn-warning">DELETE</a>
